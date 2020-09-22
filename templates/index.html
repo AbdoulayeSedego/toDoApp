@@ -11,20 +11,23 @@
             <h1 class="todo__header"> To Do App 📝</h1>
             <div class="card todo__headerContainer">
                 <p class="font-weight-bold"> What are we doing today? 🔥</p>
-                <form action="" class="todo__form">
+                <form action="{{url_for('add')}}" method="POST" class="todo__form">
                     <input type="text" name="todoitem" placeholder="Write task here...">
                     <input type="submit" class="btn btn-info" value="➕ Add Item">
                 </form>
             </div>
+
             <div class="todo__itemContainer">
                 <div class="card todo__innerItemContainer">
                     <h2 class="todo__itemHeader">To Do's 🕑</h2>
                     <ul class="todo__container">
+                        {% for toDoApp in incomplete %}
                         <li class="todo__item">
-                            <p>MY todo X</p>
+                            <p>{{toDoApp.text}}</p>
                             <a href="#" class="btn btn-outline-success"> Complete ➡️</a>
                             <a href="#" class="todo__close">❌</a>
                         </li>
+                        {% endfor %}
                     </ul>
                 </div>
             
