@@ -2,8 +2,44 @@
 <html>
     <head>
         <title>Welcome to my Python Flask toDo app </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
-        <h1>Hello from Flask</h1>
+        <div class="todo">
+            <h1 class="todo__header"> To Do App 📝</h1>
+            <div class="card todo__headerContainer">
+                <p class="font-weight-bold"> What are we doing today? 🔥</p>
+                <form action="" class="todo__form">
+                    <input type="text" name="todoitem" placeholder="Write task here...">
+                    <input type="submit" class="btn btn-info" value="➕ Add Item">
+                </form>
+            </div>
+            <div class="todo__itemContainer">
+                <div class="card todo__innerItemContainer">
+                    <h2 class="todo__itemHeader">To Do's 🕑</h2>
+                    <ul class="todo__container">
+                        <li class="todo__item">
+                            <p>MY todo X</p>
+                            <a href="#" class="btn btn-outline-success"> Complete ➡️</a>
+                            <a href="#" class="todo__close">❌</a>
+                        </li>
+                    </ul>
+                </div>
+            
+        
+                <div class=" card todo__innerItemContainer">
+                    <h2 class="todo__itemHeader">Done ✔️</h2>
+                    <ul class="todo__container">
+                        <li class="todo__item">
+                            <p>MY todo X</p>
+                            <a href="#" class="btn btn-outline-secondary"> Undo ⬅️</a>
+                            <a href="#" class="todo__close">❌</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </body>
-</html>
+</html> 
