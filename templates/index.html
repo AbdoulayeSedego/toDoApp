@@ -16,7 +16,7 @@
                     <input type="submit" class="btn btn-info" value="➕ Add Item">
                 </form>
             </div>
-
+            {% if incomplete %}
             <div class="todo__itemContainer">
                 <div class="card todo__innerItemContainer">
                     <h2 class="todo__itemHeader">To Do's 🕑</h2>
@@ -24,24 +24,29 @@
                         {% for toDoApp in incomplete %}
                         <li class="todo__item">
                             <p>{{toDoApp.text}}</p>
-                            <a href="#" class="btn btn-outline-success"> Complete ➡️</a>
-                            <a href="#" class="todo__close">❌</a>
+                            <a href="{{url_for('complete', id=toDoApp.id)}}" class="btn btn-outline-success"> Complete ➡️</a>
+                            <a href="{{url_for('delete', id=toDoApp.id)}}" class="todo__close">❌</a>
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
             
-        
+            {% endif %}
+            
+            {% if complete %}
                 <div class=" card todo__innerItemContainer">
                     <h2 class="todo__itemHeader">Done ✔️</h2>
                     <ul class="todo__container">
+                        {% for toDoApp in complete %}
                         <li class="todo__item">
-                            <p>MY todo X</p>
-                            <a href="#" class="btn btn-outline-secondary"> Undo ⬅️</a>
-                            <a href="#" class="todo__close">❌</a>
+                            <p>{{toDoApp.text}}</p>
+                            <a href="{{url_for('uncheck', id=toDoApp.id)}}" class="btn btn-outline-secondary"> Undo ⬅️</a>
+                            <a href="{{url_for('delete', id=toDoApp.id)}}" class="todo__close">❌</a>
+                        {% endfor %}
                         </li>
                     </ul>
                 </div>
+            {% endif %}
             </div>
         </div>
     </body>
